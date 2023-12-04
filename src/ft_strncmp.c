@@ -1,35 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex.h                                            :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dajimene <dajimene@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/29 10:31:51 by dajimene          #+#    #+#             */
-/*   Updated: 2023/12/01 12:07:03 by dajimene         ###   ########.fr       */
+/*   Created: 2023/11/29 12:05:09 by dajimene          #+#    #+#             */
+/*   Updated: 2023/11/29 12:05:10 by dajimene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PIPEX_H
-# define PIPEX_H
+#include "../include/pipex.h"
 
-# include <unistd.h>
-
-typedef struct s_pipex
+int	ft_strncmp(const char *str1, const char *str2, size_t n)
 {
-	int		in_fd;
-	int		out_fd;
-	int		fd[2];
-	int		here_doc;
-	int		invalid_infile;
-	char	**paths;
-	char	**cmd_args;
-}		t_pipex;
+	size_t	i;
 
-
-char	*ft_strjoin(char const *s1, char const *s2);
-char	*ft_strdup(const char *s);
-int		ft_strncmp(const char *str1, const char *str2, size_t n);
-char	**ft_split(char const *s, char c);
-
-#endif
+	i = 0;
+	if (!n)
+		return (0);
+	while ((str1[i] || str2[i])
+		&& i < n - 1 && str1[i] == str2[i])
+		i++;
+	return ((unsigned char)str1[i] - (unsigned char)str2[i]);
+}
