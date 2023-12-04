@@ -1,31 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   errors.c                                           :+:      :+:    :+:   */
+/*   ft_atol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dajimene <dajimene@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/29 12:15:50 by dajimene          #+#    #+#             */
-/*   Updated: 2023/12/04 21:52:05 by dajimene         ###   ########.fr       */
+/*   Created: 2023/11/24 10:44:52 by dajimene          #+#    #+#             */
+/*   Updated: 2023/11/27 22:36:38 by dajimene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/pipex.h"
+#include "libft.h"
 
-void	ft_error_exit(char *path_from_envp, char **paths,
-		char *message)
+long	ft_atol(const char *str)
 {
-	int	i;
+	long	i;
+	int		sign;
+	long	val;
 
-	if (path_from_envp)
-		free(path_from_envp);
-	if (paths)
+	i = 0;
+	sign = 1;
+	val = 0;
+	while (str[i] == 32 || (str[i] >= 9 && str[i] <= 13))
+		i++;
+	if (str[i] == '-' || str[i] == '+')
 	{
-		i = 0;
-		while (paths[i])
-			free(paths[i++]);
-		free(paths);
+		if (str[i] == '-')
+			sign = -1;
+		i++;
 	}
-	ft_putstr_fd(message, STDERR);
-	exit(-1);
+	while (ft_isdigit(str[i]))
+		val = val * 10 + (str[i++] - 48);
+	return (val * sign);
 }

@@ -1,31 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   errors.c                                           :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dajimene <dajimene@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/29 12:15:50 by dajimene          #+#    #+#             */
-/*   Updated: 2023/12/04 21:52:05 by dajimene         ###   ########.fr       */
+/*   Created: 2022/12/20 13:59:02 by dajimene          #+#    #+#             */
+/*   Updated: 2023/11/27 22:41:06 by dajimene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/pipex.h"
+#include "libft.h"
 
-void	ft_error_exit(char *path_from_envp, char **paths,
-		char *message)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	int	i;
+	char			*new;
+	unsigned int	i;
 
-	if (path_from_envp)
-		free(path_from_envp);
-	if (paths)
+	i = 0;
+	if (!s || (!s && !f))
+		return (ft_strdup(""));
+	if (!f)
+		return (ft_strdup(s));
+	new = ft_strdup(s);
+	if (!new)
+		return (NULL);
+	while (s[i])
 	{
-		i = 0;
-		while (paths[i])
-			free(paths[i++]);
-		free(paths);
+		new[i] = (*f)(i, s[i]);
+		i++;
 	}
-	ft_putstr_fd(message, STDERR);
-	exit(-1);
+	return (new);
 }

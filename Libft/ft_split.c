@@ -5,12 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dajimene <dajimene@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/29 12:04:40 by dajimene          #+#    #+#             */
-/*   Updated: 2023/11/29 12:12:30 by dajimene         ###   ########.fr       */
+/*   Created: 2022/12/12 14:11:45 by dajimene          #+#    #+#             */
+/*   Updated: 2023/11/27 22:40:11 by dajimene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/pipex.h"
+#include "libft.h"
 
 static	int	nbrstr(char const *s, char c)
 {
@@ -37,7 +37,7 @@ static	size_t	word_len(char const *s, char c, int count)
 
 	i = 0;
 	while (s[count] != c && s[count])
-	{
+	{	
 		i++;
 		count++;
 	}
@@ -85,3 +85,19 @@ char	**ft_split(char const *s, char c)
 	array[nmstr] = 0;
 	return (array);
 }
+
+/*int main()
+{
+    char **r;
+	int i;
+
+	i = 0;
+    r = ft_split("Hola Mundo Virtual", ' ');
+	while (r[i])
+	{
+		printf("%s ", r[i]);
+		i++;
+	}
+	free(r);
+    return (0);
+}*/

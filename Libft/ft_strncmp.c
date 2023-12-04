@@ -1,31 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   errors.c                                           :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dajimene <dajimene@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/29 12:15:50 by dajimene          #+#    #+#             */
-/*   Updated: 2023/12/04 21:52:05 by dajimene         ###   ########.fr       */
+/*   Created: 2022/12/12 14:32:55 by dajimene          #+#    #+#             */
+/*   Updated: 2023/11/27 22:44:15 by dajimene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/pipex.h"
+#include "libft.h"
 
-void	ft_error_exit(char *path_from_envp, char **paths,
-		char *message)
+int	ft_strncmp(const char *str1, const char *str2, size_t n)
 {
-	int	i;
+	size_t	i;
 
-	if (path_from_envp)
-		free(path_from_envp);
-	if (paths)
-	{
-		i = 0;
-		while (paths[i])
-			free(paths[i++]);
-		free(paths);
-	}
-	ft_putstr_fd(message, STDERR);
-	exit(-1);
+	i = 0;
+	if (!n)
+		return (0);
+	while ((str1[i] || str2[i])
+		&& i < n - 1 && str1[i] == str2[i])
+		i++;
+	return ((unsigned char)str1[i] - (unsigned char)str2[i]);
 }

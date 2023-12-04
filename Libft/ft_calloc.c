@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   errors.c                                           :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dajimene <dajimene@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/29 12:15:50 by dajimene          #+#    #+#             */
-/*   Updated: 2023/12/04 21:52:05 by dajimene         ###   ########.fr       */
+/*   Created: 2022/12/12 14:10:28 by dajimene          #+#    #+#             */
+/*   Updated: 2023/11/27 22:36:52 by dajimene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/pipex.h"
+#include "libft.h"
 
-void	ft_error_exit(char *path_from_envp, char **paths,
-		char *message)
+void	*ft_calloc(size_t num, size_t size)
 {
-	int	i;
+	void	*p;
 
-	if (path_from_envp)
-		free(path_from_envp);
-	if (paths)
-	{
-		i = 0;
-		while (paths[i])
-			free(paths[i++]);
-		free(paths);
-	}
-	ft_putstr_fd(message, STDERR);
-	exit(-1);
+	p = malloc(num * size);
+	if (p == NULL)
+		return (NULL);
+	else
+		ft_bzero(p, (num * size));
+	return (p);
 }
+/* int main()
+{
+    char *str = (char *)ft_calloc(10, 10);
+    printf("%d", *str);
+    return (0);
+} */

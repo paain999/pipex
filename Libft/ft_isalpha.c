@@ -1,31 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   errors.c                                           :+:      :+:    :+:   */
+/*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dajimene <dajimene@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/29 12:15:50 by dajimene          #+#    #+#             */
-/*   Updated: 2023/12/04 21:52:05 by dajimene         ###   ########.fr       */
+/*   Created: 2022/12/12 14:10:43 by dajimene          #+#    #+#             */
+/*   Updated: 2023/11/27 22:37:17 by dajimene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/pipex.h"
+#include "libft.h"
 
-void	ft_error_exit(char *path_from_envp, char **paths,
-		char *message)
+int	ft_isalpha(int c)
 {
-	int	i;
-
-	if (path_from_envp)
-		free(path_from_envp);
-	if (paths)
+	if ((c >= 65 && c <= 90) || (c >= 97 && c <= 122))
 	{
-		i = 0;
-		while (paths[i])
-			free(paths[i++]);
-		free(paths);
+		return (1);
 	}
-	ft_putstr_fd(message, STDERR);
-	exit(-1);
+	return (0);
 }

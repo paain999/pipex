@@ -6,19 +6,19 @@
 /*   By: dajimene <dajimene@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 11:54:42 by dajimene          #+#    #+#             */
-/*   Updated: 2023/12/04 13:27:21 by dajimene         ###   ########.fr       */
+/*   Updated: 2023/12/04 22:20:07 by dajimene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/pipex.h"
 
-int	main(int ac, char **av, char **envp)
+int	main(int ac, char **av, char **env)
 {
 	t_pipex	pipex;
 
 	if (ac != 5)
-		perror("Error, wrong number of arguments.\n");
+		ft_error_exit(NULL, NULL, "Error, wrong number of arguments");
 	else
-		ft_pipex(&pipex, av, envp);
+		ft_pipex(&pipex, av, env);
 	return (0);
 }

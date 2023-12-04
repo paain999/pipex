@@ -6,7 +6,7 @@
 /*   By: dajimene <dajimene@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 10:31:51 by dajimene          #+#    #+#             */
-/*   Updated: 2023/12/04 13:27:17 by dajimene         ###   ########.fr       */
+/*   Updated: 2023/12/04 23:35:45 by dajimene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,26 @@
 
 # include <unistd.h>
 # include <fcntl.h>
+# include "../Libft/libft.h" 
+# include <sys/wait.h>
+
+# define STDERR 2
+# define STDIN 0
+# define STDOUT 1
 
 typedef struct s_pipex
 {
-	int		fd[2];
+	int		in_fd;
+	int		out_fd;
+	int		end[2];
 	char	*path_from_envp;
 	char	**paths;
 	char	**cmd_args;
+	pid_t	child_one;
+	pid_t	child_two;
 }		t_pipex;
 
-
-char	*ft_strjoin(char const *s1, char const *s2);
-char	*ft_strdup(const char *s);
-int		ft_strncmp(const char *str1, const char *str2, size_t n);
-char	**ft_split(char const *s, char c);
-void	ft_pipex(t_pipex *pipex, char **av, char **envp);
+void	ft_pipex(t_pipex *pipex, char **av, char **env);
+void	ft_error_exit(char *path_from_envp, char **cmd_args, char *message);
 
 #endif

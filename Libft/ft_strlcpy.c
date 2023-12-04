@@ -1,31 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   errors.c                                           :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dajimene <dajimene@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/29 12:15:50 by dajimene          #+#    #+#             */
-/*   Updated: 2023/12/04 21:52:05 by dajimene         ###   ########.fr       */
+/*   Created: 2022/12/12 14:32:13 by dajimene          #+#    #+#             */
+/*   Updated: 2023/11/27 22:40:54 by dajimene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/pipex.h"
+#include "libft.h"
 
-void	ft_error_exit(char *path_from_envp, char **paths,
-		char *message)
+size_t	ft_strlcpy(char *dest, char *src, size_t size)
 {
-	int	i;
+	size_t	i;
+	size_t	src_len;
 
-	if (path_from_envp)
-		free(path_from_envp);
-	if (paths)
+	src_len = ft_strlen(src);
+	i = 0;
+	if (!dest || !src)
+		return (0);
+	if (!size)
+		return (src_len);
+	while (src[i] != '\0' && i + 1 < size)
 	{
-		i = 0;
-		while (paths[i])
-			free(paths[i++]);
-		free(paths);
+		dest[i] = src[i];
+		++i;
 	}
-	ft_putstr_fd(message, STDERR);
-	exit(-1);
+		dest[i] = '\0';
+	return (src_len);
 }

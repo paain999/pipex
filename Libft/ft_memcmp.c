@@ -1,31 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   errors.c                                           :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dajimene <dajimene@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/29 12:15:50 by dajimene          #+#    #+#             */
-/*   Updated: 2023/12/04 21:52:05 by dajimene         ###   ########.fr       */
+/*   Created: 2022/12/12 14:11:17 by dajimene          #+#    #+#             */
+/*   Updated: 2023/11/27 22:37:53 by dajimene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/pipex.h"
+#include "libft.h"
 
-void	ft_error_exit(char *path_from_envp, char **paths,
-		char *message)
+int	ft_memcmp(const void *str1, const void *str2, size_t n)
 {
-	int	i;
+	unsigned char	*s1;
+	unsigned char	*s2;
 
-	if (path_from_envp)
-		free(path_from_envp);
-	if (paths)
-	{
-		i = 0;
-		while (paths[i])
-			free(paths[i++]);
-		free(paths);
-	}
-	ft_putstr_fd(message, STDERR);
-	exit(-1);
+	s1 = (unsigned char *)str1;
+	s2 = (unsigned char *)str2;
+	if (n)
+		while (n--)
+			if (*s1++ != *s2++)
+				return (*(--s1) - *(--s2));
+	return (0);
 }

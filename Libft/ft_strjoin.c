@@ -5,12 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dajimene <dajimene@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/29 12:04:56 by dajimene          #+#    #+#             */
-/*   Updated: 2023/11/29 12:12:21 by dajimene         ###   ########.fr       */
+/*   Created: 2022/12/12 14:24:46 by dajimene          #+#    #+#             */
+/*   Updated: 2023/11/27 22:40:35 by dajimene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/pipex.h"
+#include "libft.h"
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
@@ -40,3 +40,13 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	free((char *)s1);
 	return (result);
 }
+/* int main()
+{
+    char    *r;
+
+    r = ft_srtjoin("Hola", " Mundo");
+
+    printf("%s", r);
+    free(r);
+    return (0);
+} */

@@ -1,26 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dajimene <dajimene@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/29 12:05:09 by dajimene          #+#    #+#             */
-/*   Updated: 2023/11/29 12:05:10 by dajimene         ###   ########.fr       */
+/*   Created: 2022/12/12 14:24:33 by dajimene          #+#    #+#             */
+/*   Updated: 2023/11/27 22:40:18 by dajimene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/pipex.h"
+#include "libft.h"
 
-int	ft_strncmp(const char *str1, const char *str2, size_t n)
+char	*ft_strchr(const char *str, int c)
 {
-	size_t	i;
+	int	i;
 
 	i = 0;
-	if (!n)
-		return (0);
-	while ((str1[i] || str2[i])
-		&& i < n - 1 && str1[i] == str2[i])
+	while (str[i])
+	{
+		if (str[i] == (char)c)
+			return ((char *)&str[i]);
 		i++;
-	return ((unsigned char)str1[i] - (unsigned char)str2[i]);
+	}
+	if (str[i] == (char)c)
+		return ((char *)&str[i]);
+	return (NULL);
 }
+/*int	main ()
+{
+	printf("%s", ft_strchr("teste", 'e'));
+	return (0);
+}*/

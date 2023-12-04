@@ -1,33 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dajimene <dajimene@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/29 12:04:49 by dajimene          #+#    #+#             */
-/*   Updated: 2023/11/29 12:12:41 by dajimene         ###   ########.fr       */
+/*   Created: 2022/12/12 14:33:39 by dajimene          #+#    #+#             */
+/*   Updated: 2023/11/27 22:45:26 by dajimene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/pipex.h"
+#include "libft.h"
 
-char	*ft_strdup(const char *s)
+int	ft_toupper(int c)
 {
-	char	*copy;
-	char	*src;
-	int		i;
-
-	i = 0;
-	src = (char *)s;
-	copy = (char *)malloc(ft_strlen(src) + 1);
-	if (!copy)
-		return (NULL);
-	while (src[i] != '\0')
-	{
-		copy[i] = src[i];
-		i++;
-	}
-	copy[i] = '\0';
-	return (copy);
+	if (c >= 97 && c <= 122)
+		c -= 32;
+	return (c);
 }

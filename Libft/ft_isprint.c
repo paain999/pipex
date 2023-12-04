@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   errors.c                                           :+:      :+:    :+:   */
+/*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dajimene <dajimene@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/29 12:15:50 by dajimene          #+#    #+#             */
-/*   Updated: 2023/12/04 21:52:05 by dajimene         ###   ########.fr       */
+/*   Created: 2022/12/12 14:11:04 by dajimene          #+#    #+#             */
+/*   Updated: 2023/11/27 22:37:34 by dajimene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/pipex.h"
+#include "libft.h"
 
-void	ft_error_exit(char *path_from_envp, char **paths,
-		char *message)
+int	ft_isprint(int c)
 {
-	int	i;
-
-	if (path_from_envp)
-		free(path_from_envp);
-	if (paths)
-	{
-		i = 0;
-		while (paths[i])
-			free(paths[i++]);
-		free(paths);
-	}
-	ft_putstr_fd(message, STDERR);
-	exit(-1);
+	if (c >= 32 && c <= 126)
+		return (1);
+	return (0);
 }
+/*int main()
+{
+	int i;
+	i = 0;
+    while (i <= 47)
+    {
+        printf("%i",ft_isprint(i));
+        i++;
+    }
+	return (0);
+}*/

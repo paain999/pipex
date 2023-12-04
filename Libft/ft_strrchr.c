@@ -1,31 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   errors.c                                           :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dajimene <dajimene@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/29 12:15:50 by dajimene          #+#    #+#             */
-/*   Updated: 2023/12/04 21:52:05 by dajimene         ###   ########.fr       */
+/*   Created: 2022/12/12 14:33:04 by dajimene          #+#    #+#             */
+/*   Updated: 2023/11/27 22:44:24 by dajimene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/pipex.h"
+#include "libft.h"
 
-void	ft_error_exit(char *path_from_envp, char **paths,
-		char *message)
+char	*ft_strrchr(const char *str, int c)
 {
 	int	i;
 
-	if (path_from_envp)
-		free(path_from_envp);
-	if (paths)
+	i = ft_strlen(str);
+	while (i >= 0)
 	{
-		i = 0;
-		while (paths[i])
-			free(paths[i++]);
-		free(paths);
+		if (str[i] == (char)c)
+			return ((char *)&str[i]);
+		i--;
 	}
-	ft_putstr_fd(message, STDERR);
-	exit(-1);
+	if ((char)c == '\0')
+		return ((char *)&str[i]);
+	return (NULL);
 }
