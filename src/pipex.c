@@ -6,7 +6,7 @@
 /*   By: dajimene <dajimene@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 13:28:27 by dajimene          #+#    #+#             */
-/*   Updated: 2023/12/04 23:37:43 by dajimene         ###   ########.fr       */
+/*   Updated: 2023/12/05 10:16:21 by dajimene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,13 @@ static	void	execute(char *cmd, char **env)
 
 static	void	child_one_process(t_pipex *pipex, char *cmd, char **env)
 {
-	dup2(pipex->end[0], STDIN);
-	close(pipex->end[1]);
+	dup2(pipex->end[1], STDIN);
 	close(pipex->end[0]);
 }
 
 static	void	child_two_process(t_pipex *pipex, char *cmd, char **env)
 {
-	dup2(pipex->end[1], STDOUT);
-	close(pipex->end[0]);
+	dup2(pipex->end[0], STDOUT);
 	close(pipex->end[1]);
 }
 
@@ -67,7 +65,7 @@ void	ft_pipex(t_pipex *pipex, char **av, char **env)
 	if (pipex->child_two == -1)
 		ft_error_exit(NULL, NULL, "Error fork.");
 	if (!pipex->child_two)
-		child_two_process(pipex, av[2], env);
+		child_two_process(pipex, av[3], env);
 	close(pipex->end[0]);
 	close(pipex->end[1]);
 	waitpid(pipex->child_one, NULL, 0);
