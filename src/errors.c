@@ -1,36 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   errors.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dajimene <dajimene@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/29 11:54:42 by dajimene          #+#    #+#             */
-/*   Updated: 2023/12/13 12:27:07 by dajimene         ###   ########.fr       */
+/*   Created: 2023/11/29 12:15:50 by dajimene          #+#    #+#             */
+/*   Updated: 2023/12/04 21:52:05 by dajimene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/pipex.h"
 
-static void	new_pipex(t_pipex *pipex)
+void	ft_error_exit(char *path_from_envp, char **paths,
+		char *message)
 {
-	pipex->cmd_args = NULL;
-	pipex->in_fd = 0;
-	pipex->out_fd = 0;
-	pipex->parent = NULL;
-	pipex->paths = NULL;
-}
+	int	i;
 
-int	main(int ac, char **av, char **env)
-{
-	t_pipex	pipex;
-
-	if (ac != 5)
-		ft_error_exit(NULL, NULL, "Error, wrong number of arguments");
-	else
+	if (path_from_envp)
+		free(path_from_envp);
+	if (paths)
 	{
-		new_pipex(&pipex);
-		ft_pipex(&pipex, av, env);
+		i = 0;
+		while (paths[i])
+			free(paths[i++]);
+		free(paths);
 	}
-	return (0);
+	ft_putstr_fd(message, STDERR);
+	exit(-1);
 }

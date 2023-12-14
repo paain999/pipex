@@ -5,48 +5,27 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dajimene <dajimene@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/29 12:15:50 by dajimene          #+#    #+#             */
-/*   Updated: 2023/12/05 10:37:47 by dajimene         ###   ########.fr       */
+/*   Created: 2023/12/09 21:28:51 by dajimene          #+#    #+#             */
+/*   Updated: 2023/12/12 20:01:04 by dajimene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/pipex.h"
 
-void	ft_error_exit(char *path_from_envp, char **paths,
-		char *message)
+void	get_path(char **env, t_pipex *pipex)
 {
-	int	i;
-
-	if (path_from_envp)
-		free(path_from_envp);
-	if (paths)
+	while (*env)
 	{
-		i = 0;
-		while (paths[i])
-			free(paths[i++]);
-		free(paths);
+		if (ft_strnstr(*env, "PATH=", 5))
+		{
+			pipex->paths = ft_split(ft_strdup(ft_strtrim(*env, "PATH=")), ':');
+			while (*pipex->paths)
+			{
+				*pipex->paths = ft_strjoin(*pipex->paths, "/");
+				printf("path: %s\n", *pipex->paths);
+				pipex->paths++;
+			}
+		}
+		env++;
 	}
-	ft_putstr_fd(message, STDERR);
-	exit(-1);
-}
-
-int	ft_open_and_check(char *file, int mode)
-{
-	int	fd;
-
-	if (mode == STDOUT)
-	{
-		fd = open(file, O_CREAT | O_WRONLY | O_TRUNC, 0644);
-		if (fd == -1)
-			ft_error_exit(NULL, NULL, "Error open");
-	}
-	else if (mode == STDIN)
-	{
-		if (access(file, F_OK) == -1)
-			ft_error_exit(NULL, NULL, "Error, No such file or directory\n");
-		fd = open(file, O_RDONLY);
-		if (fd == -1)
-			ft_error_exit(NULL, NULL, "Error open");
-	}
-	return (fd);
 }
