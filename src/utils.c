@@ -6,7 +6,7 @@
 /*   By: dajimene <dajimene@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 21:28:51 by dajimene          #+#    #+#             */
-/*   Updated: 2023/12/18 10:59:47 by dajimene         ###   ########.fr       */
+/*   Updated: 2023/12/18 11:31:37 by dajimene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,6 @@ void	get_path(char **env, t_pipex *pipex)
 			while (pipex->paths[i])
 			{
 				pipex->paths[i] = ft_strjoin(pipex->paths[i], "/");
-				printf("path: %s\n", pipex->paths[i]);
 				i++;
 			}
 			break ;
