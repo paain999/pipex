@@ -6,7 +6,7 @@
 /*   By: dajimene <dajimene@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 13:28:27 by dajimene          #+#    #+#             */
-/*   Updated: 2024/01/26 14:57:30 by dajimene         ###   ########.fr       */
+/*   Updated: 2024/01/26 15:07:49 by dajimene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,6 @@ void	ft_pipex(t_pipex *pipex, char **av, char **env)
 	pipex->parent = fork();
 	if (pipex->parent == -1)
 		ft_error_exit(NULL, "Error fork.", 0, 0);
-	get_path(env, pipex);
 	if (!pipex->parent)
 		child_process(pipex, av[2], env);
 	if (pipex->parent)

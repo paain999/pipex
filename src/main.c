@@ -6,7 +6,7 @@
 /*   By: dajimene <dajimene@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 11:54:42 by dajimene          #+#    #+#             */
-/*   Updated: 2024/01/26 14:52:03 by dajimene         ###   ########.fr       */
+/*   Updated: 2024/01/26 15:08:01 by dajimene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ int	main(int ac, char **av, char **env)
 	else
 	{
 		new_pipex(&pipex);
+		get_path(env, &pipex);
 		ft_pipex(&pipex, av, env);
 	}
 	free_all(&pipex);
