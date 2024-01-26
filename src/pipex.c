@@ -6,7 +6,7 @@
 /*   By: dajimene <dajimene@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 13:28:27 by dajimene          #+#    #+#             */
-/*   Updated: 2023/12/18 10:58:11 by dajimene         ###   ########.fr       */
+/*   Updated: 2024/01/26 14:57:30 by dajimene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ static	int	ft_open_and_check(char *file, int mode)
 {
 	int	fd;
 
+	fd = 0;
 	if (mode == STDOUT)
 	{
 		fd = open(file, O_CREAT | O_WRONLY | O_TRUNC, 0644);
@@ -83,7 +84,7 @@ void	ft_pipex(t_pipex *pipex, char **av, char **env)
 	pipex->in_fd = ft_open_and_check(av[1], STDIN);
 	pipex->out_fd = ft_open_and_check(av[4], STDOUT);
 	if (pipe(pipex->end) == -1)
-		ft_error_exit(NULL, "Error pipe.", 0 ,0);
+		ft_error_exit(NULL, "Error pipe.", 0, 0);
 	pipex->parent = fork();
 	if (pipex->parent == -1)
 		ft_error_exit(NULL, "Error fork.", 0, 0);

@@ -6,7 +6,7 @@
 /*   By: dajimene <dajimene@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 14:33:14 by dajimene          #+#    #+#             */
-/*   Updated: 2023/11/27 22:44:36 by dajimene         ###   ########.fr       */
+/*   Updated: 2024/01/26 14:59:09 by dajimene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static	char	*ft(int len, int i, char *new, char const *s1)
 
 	k = 0;
 	while (i < len)
-			new[k++] = s1[i++];
+		new[k++] = s1[i++];
 	return (new);
 }
 

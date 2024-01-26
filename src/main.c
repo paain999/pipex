@@ -6,7 +6,7 @@
 /*   By: dajimene <dajimene@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 11:54:42 by dajimene          #+#    #+#             */
-/*   Updated: 2023/12/18 10:58:42 by dajimene         ###   ########.fr       */
+/*   Updated: 2024/01/26 14:52:03 by dajimene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ int	main(int ac, char **av, char **env)
 {
 	t_pipex	pipex;
 
+	if (!env || !*env)
+		return (0);
 	if (ac != 5)
 		ft_error_exit(NULL, "Error, wrong number of arguments", 0, 0);
 	else

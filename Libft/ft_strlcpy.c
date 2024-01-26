@@ -6,7 +6,7 @@
 /*   By: dajimene <dajimene@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 14:32:13 by dajimene          #+#    #+#             */
-/*   Updated: 2023/11/27 22:40:54 by dajimene         ###   ########.fr       */
+/*   Updated: 2024/01/26 14:58:56 by dajimene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,6 @@ size_t	ft_strlcpy(char *dest, char *src, size_t size)
 		dest[i] = src[i];
 		++i;
 	}
-		dest[i] = '\0';
+	dest[i] = '\0';
 	return (src_len);
 }

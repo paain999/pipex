@@ -6,7 +6,7 @@
 /*   By: dajimene <dajimene@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 14:11:45 by dajimene          #+#    #+#             */
-/*   Updated: 2023/11/27 22:40:11 by dajimene         ###   ########.fr       */
+/*   Updated: 2024/01/26 14:58:35 by dajimene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ static	size_t	word_len(char const *s, char c, int count)
 
 	i = 0;
 	while (s[count] != c && s[count])
-	{	
+	{
 		i++;
 		count++;
 	}

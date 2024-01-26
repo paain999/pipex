@@ -6,7 +6,7 @@
 /*   By: dajimene <dajimene@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 21:28:51 by dajimene          #+#    #+#             */
-/*   Updated: 2023/12/18 11:31:37 by dajimene         ###   ########.fr       */
+/*   Updated: 2024/01/26 14:53:54 by dajimene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,4 +69,6 @@ void	get_path(char **env, t_pipex *pipex)
 		}
 		envp++;
 	}
+	if (!*envp)
+		ft_error_exit(NULL, "Error, no PATH variable found.\n", 0, 0);
 }
