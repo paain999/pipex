@@ -6,7 +6,7 @@
 /*   By: dajimene <dajimene@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 13:28:27 by dajimene          #+#    #+#             */
-/*   Updated: 2024/01/26 15:07:49 by dajimene         ###   ########.fr       */
+/*   Updated: 2024/01/26 15:46:54 by dajimene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ static	int	ft_open_and_check(char *file, int mode)
 {
 	int	fd;
 
-	fd = 0;
+	fd = -1;
 	if (mode == STDOUT)
 	{
 		fd = open(file, O_CREAT | O_WRONLY | O_TRUNC, 0644);

@@ -6,7 +6,7 @@
 #    By: dajimene <dajimene@student.42urduliz.co    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/18 11:29:44 by dajimene          #+#    #+#              #
-#    Updated: 2023/12/23 20:34:10 by dajimene         ###   ########.fr        #
+#    Updated: 2024/01/26 15:52:48 by dajimene         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,7 +45,7 @@ $(LIBFT):
 $(NAME): $(OBJS) $(LIBFT)
 	@echo "\033[0;92m --libft compiled--"
 	@echo "\033[33m --Compiling pipex--"
-	@$(CC) $(CFLAGS) $(OBJS) -L$(LIBFT_DIR) -lft -o $(NAME)
+	@$(CC) $(FLAGS) $(OBJS) -L$(LIBFT_DIR) -lft -o $(NAME)
 	@echo "\033[0;92m --pipex compiled--"
 	@echo "\033[0;92mUsage: ./pipex infile comando1 comando2 outfile"
 

@@ -6,7 +6,7 @@
 /*   By: dajimene <dajimene@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 21:28:51 by dajimene          #+#    #+#             */
-/*   Updated: 2024/01/26 14:53:54 by dajimene         ###   ########.fr       */
+/*   Updated: 2024/01/26 16:58:20 by dajimene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ void	free_all(t_pipex *pipex)
 			free(pipex->paths[i++]);
 		free(pipex->paths);
 	}
-	free(pipex);
 }
 
 void	ft_error_exit(t_pipex *pipex, char *message, int fd1, int fd2)
